@@ -1,0 +1,17 @@
+#! /bin/bash
+#$ -S /bin/bash
+#$ -q fast.q
+#$ -cwd
+#$ -N myjob
+#$ -j y
+#$ -o matlab_s_g.qlog
+#$ -l mem_free=32G
+#$ -pe smp 20
+#$ -V
+
+
+alias matlab="/home/MATLAB/R2016b/bin/matlab"
+sleep 5
+cd ~/deeptd/matlab-TD-kwta/PuddleWorld
+sleep 2
+matlab -nodisplay -nodesktop -r "run sarsa_state_goal_big_hidden.m"; pause(10); quit
